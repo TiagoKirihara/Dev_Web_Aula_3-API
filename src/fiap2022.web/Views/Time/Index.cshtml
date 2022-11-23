@@ -1,0 +1,55 @@
+﻿@model List<Time>
+
+<h4>Times</h4>
+
+<div>
+
+    <a class="btn btn-primary" asp-controller="Time" asp-action="Create">Novo</a>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"> Id</th>
+            <th scope="col"> Nome</th>
+            <th scope="col"> Bandeira</th>
+            <th scope="col"> Continent</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+        </tr>
+    </thead>
+    @foreach (var time in Model)
+    {
+        <tr>
+            <td scope="row">
+                @time.Id
+            </td>
+            <td>
+                @time.Nome
+            </td>
+            <td>
+                <img src="@time.Bandeira" width="40px">
+
+            </td>
+            <td>
+                @time.Continent
+            </td>
+
+            <td>
+
+
+                <a asp-action="Edit" asp-controller="Time" asp-route-continente="@time.Continent" asp-route-id="@time.Id" class="btn btn-secondary">Editar</a>
+            </td>
+
+            <td>
+                <form asp-action="Delete" asp-controller="Time" asp-route-id="@time.Id" method="post">
+                    <button type="submit" class="btn btn-danger"> Remover </button>
+                </form>
+            </td>
+
+        </tr>
+
+
+    }
+</table>

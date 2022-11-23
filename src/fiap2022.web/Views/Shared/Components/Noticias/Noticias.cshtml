@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Noticia>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a> @item.Titulo</a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,58 @@
+﻿@model HomeViewModel
+@{
+    //Layout = "_Layout";
+    //Layout = null;
+
+}
+
+<email mail-to="financeiro"></email>
+
+<div>
+    <select>
+        @foreach (var pais in Model.Paises)
+        {
+            <option>@pais.Nome</option>
+        }
+    </select>
+
+</div>
+<ul>
+    @foreach (var pessoa in Model.Pessoas)
+    {
+
+        <li>
+            <input type="text" value="@pessoa.Nome" name="Nome" />
+            @*<input type="text" a/>*@
+
+            @* @Html.EditorFor(pessoa.Nome)*@
+            @pessoa.Nome
+        </li>
+    }
+</ul>
+
+
+
+@*<h1>@Model[0].Nome</h1>
+
+
+    <h1>@ViewData["nome"]</h1>
+    <h1>@ViewData["Categoria"]</h1>
+    <h1>@ViewBag.Categoria</h1>*@
+
+
+
+@*<h1>@((Pessoa)ViewData["pessoa"]).Nome</h1>*@
+<h1>Teste teste</h1>
+
+
+@await Component.InvokeAsync("Noticias", new {total=3, noticiasUrgentes=true})
+
+
+<vc:noticias total="3" noticias-urgentes="false"></vc:noticias>
+
+@section footer{
+    <script>
+        console.log('foi');
+    </script>
+
+}
