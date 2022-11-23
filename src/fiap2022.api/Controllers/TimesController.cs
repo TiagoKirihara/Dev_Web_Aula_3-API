@@ -1,5 +1,6 @@
 ﻿using fiap2022.core.Contexts;
 using fiap2022.core.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace fiap2022.api.Controllers
@@ -7,6 +8,7 @@ namespace fiap2022.api.Controllers
     //[Route("api/times")]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Default")]
     public class TimesController : ControllerBase
     {
         private DataContext _dataContext;
